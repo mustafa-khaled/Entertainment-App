@@ -26,3 +26,8 @@
   border-radius: 20px;
   background-color: var(--color-red);
 }
+
+/* Add Some Styles For The Active Link */
+.sidebar-links a.active i {
+  color: var(--color-white);
+}

@@ -9,9 +9,8 @@ function AppLayout() {
         <div>
           <Sidebar />
         </div>
-        <main className="bg-colorSemiDarkBlue min-h-[1000vh] w-full">
-          {/* <Outlet /> */}
-          <h1>some</h1>
+        <main className="min-h-[1000vh] w-full bg-colorSemiDarkBlue">
+          <Outlet />
         </main>
       </Container>
     </div>
