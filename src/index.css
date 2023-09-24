@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-red: #fc4747;
+  --color-dark-blue: #10141e;
+  --color-greyish-blue: #5a698f;
+  --color-semi-dark-blue: #161d2f;
+  --color-white: #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background-color: var(--color-semi-dark-blue);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--color-dark-blue);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: var(--color-red);
+}
