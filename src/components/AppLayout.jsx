@@ -9,7 +9,7 @@ function AppLayout() {
         <div>
           <Sidebar />
         </div>
-        <main className="min-h-[calc(100vh-40px)] w-full bg-colorSemiDarkBlue p-[20px] text-colorWhite">
+        <main className="min-h-[calc(100vh-40px)] w-full p-[20px] text-colorWhite">
           <Outlet />
         </main>
       </Container>
