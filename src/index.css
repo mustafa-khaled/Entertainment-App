@@ -31,3 +31,7 @@
 .sidebar-links a.active i {
   color: var(--color-white);
 }
+
+i {
+  cursor: pointer;
+}
