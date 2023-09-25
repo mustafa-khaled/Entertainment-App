@@ -11,17 +11,17 @@ function SectionHeader({ title, tabs, onTabChange }) {
   };
 
   return (
-    <div className="mt-8 flex items-center justify-between">
+    <div className="my-8 flex items-center justify-between ">
       <h2 className="text-2xl">{title}</h2>
-      <div>
-        <div className="switchingTabs h-9 rounded-full bg-colorSemiDarkBlue p-1 text-colorWhite">
+      <div className="w-[50%] sm:w-auto">
+        <div className="h-9  rounded-full bg-colorSemiDarkBlue p-1 text-colorWhite">
           <div className="relative flex h-full items-center">
             {tabs.map((tab, index) => (
               <span
                 key={tab}
                 className={`${
                   selectedTab === index ? "bg-colorRed" : ""
-                } tabItem relative flex h-full w-32  cursor-pointer items-center justify-center rounded-full text-base transition duration-300 ease-in-out`}
+                } relative flex h-full w-32  cursor-pointer items-center justify-center rounded-full text-sm transition duration-300 ease-in-out sm:text-base`}
                 onClick={() => activeTab(tab, index)}
               >
                 {tab}

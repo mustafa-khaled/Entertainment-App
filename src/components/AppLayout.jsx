@@ -5,7 +5,7 @@ import Container from "./Container";
 function AppLayout() {
   return (
     <div className="bg-colorDarkBlue pt-[40px]">
-      <Container styles="flex md:items-start  items-center gap-[20px] md:flex-row flex-col">
+      <Container styles="flex flex-col  items-center gap-[20px] md:flex-row md:items-start">
         <div>
           <Sidebar />
         </div>

@@ -8,7 +8,7 @@ function SidebarLinks() {
         return (
           <NavLink key={link.id} to={link.linkHref}>
             <i
-              className={`${link.icon} text-xl text-colorGreyishBlue hover:text-colorRed`}
+              className={`${link.icon} text-lg text-colorGreyishBlue hover:text-colorRed sm:text-xl`}
               alt=""
             ></i>
           </NavLink>
