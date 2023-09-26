@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "./sidebar/Sidebar";
-import Container from "./Container";
 import { useEffect } from "react";
 import { fetchDataFromApi } from "../utils/api";
-import { useDispatch } from "react-redux";
-import { gitApiConfiguration } from "../store/features/homeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { gitApiConfiguration, gitGenres } from "../store/features/homeSlice";
+import Sidebar from "./sidebar/Sidebar";
+import Container from "./Container";
 
 function AppLayout() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchApiConfig();
+    genresCall();
   }, []);
 
   const fetchApiConfig = () => {
@@ -22,6 +23,21 @@ function AppLayout() {
       };
       dispatch(gitApiConfiguration(url));
     });
+  };
+
+  const genresCall = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+    endPoints?.forEach((url) => {
+      promises.push(fetchDataFromApi(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promises);
+    data?.map(({ genres }) => {
+      return genres?.map((item) => (allGenres[item.id] = item));
+    });
+    dispatch(gitGenres(allGenres));
   };
 
   return (

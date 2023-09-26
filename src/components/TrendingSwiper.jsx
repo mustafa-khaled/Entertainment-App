@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import noPoster from "/no-poster.png";
 
-function ItemsSwiper({ data, loading, endPoint }) {
+function TrendingSwiper({ data, loading }) {
   const { url } = useSelector((state) => state.home);
 
   return (
@@ -17,24 +17,18 @@ function ItemsSwiper({ data, loading, endPoint }) {
         350: {
           slidesPerView: 2,
         },
-        700: {
+        600: {
           slidesPerView: 3,
-        },
-        900: {
-          slidesPerView: 4,
-        },
-        1000: {
-          slidesPerView: 5,
         },
 
         1024: {
-          slidesPerView: 6,
+          slidesPerView: 4,
         },
       }}
     >
       {data?.map((item) => {
-        const backdropPath = item.poster_path
-          ? url.poster + item.poster_path
+        const backdropPath = item.backdrop_path
+          ? url.poster + item.backdrop_path
           : noPoster;
 
         const formattedDate = formatDate(
@@ -43,7 +37,7 @@ function ItemsSwiper({ data, loading, endPoint }) {
 
         return (
           <SwiperSlide key={item.id} className="relative cursor-pointer">
-            <Link to={`${endPoint}/${item?.id}`}>
+            <Link to={`${item?.media_type}/${item?.id}`}>
               <img
                 src={backdropPath}
                 alt={item.title || item.name}
@@ -56,14 +50,6 @@ function ItemsSwiper({ data, loading, endPoint }) {
                 <p className="text-xs text-colorGreyishBlue ">
                   {formattedDate}
                 </p>
-                <div>
-                  <i className="fa-solid fa-star mr-[5px] text-sm text-yellow-500"></i>
-                  <span className="text-sm text-colorGreyishBlue underline">
-                    {Number.isInteger(item?.vote_average)
-                      ? item?.vote_average + ".0"
-                      : item?.vote_average}
-                  </span>
-                </div>
               </div>
             </Link>
           </SwiperSlide>
@@ -73,4 +59,4 @@ function ItemsSwiper({ data, loading, endPoint }) {
   );
 }
 
-export default ItemsSwiper;
+export default TrendingSwiper;
