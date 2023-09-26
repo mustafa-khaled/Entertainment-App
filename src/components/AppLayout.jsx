@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { gitApiConfiguration, gitGenres } from "../store/features/homeSlice";
 import Sidebar from "./sidebar/Sidebar";
 import Container from "./Container";
+import Footer from "./Footer";
 
 function AppLayout() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function AppLayout() {
           <Outlet />
         </main>
       </Container>
+      <Footer />
     </div>
   );
 }
