@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 import SectionHeader from "./SectionHeader";
-import Carousel from "./Carousel";
+import ItemsSwiper from "./ItemsSwiper";
 
 function Trending() {
   const [endPoint, setEndPoint] = useState("day");
@@ -19,7 +19,7 @@ function Trending() {
         tabs={["Day", "Week"]}
         onTabChange={onTabChange}
       />
-      <Carousel data={data?.results} loading={loading} />
+      <ItemsSwiper data={data?.results} loading={loading} />
     </div>
   );
 }
