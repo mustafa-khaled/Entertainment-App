@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import noPoster from "/no-poster.png";
 
-function TrendingSwiper({ data, loading }) {
+function TrendingSwiper({ data }) {
   const { url } = useSelector((state) => state.home);
 
   return (

@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import noPoster from "/no-poster.png";
 
-function ItemsSwiper({ data, loading, endPoint }) {
+function ItemsSwiper({ data, endPoint }) {
   const { url } = useSelector((state) => state.home);
 
   return (
