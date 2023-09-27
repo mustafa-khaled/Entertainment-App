@@ -13,21 +13,19 @@ function Tabs({ tabs, onTabChange }) {
   return (
     <div className="w-[50%] sm:w-auto">
       <div className="h-9  rounded-full bg-colorSemiDarkBlue p-1 text-colorWhite">
-        {tabs && (
-          <div className="relative flex h-full items-center">
-            {tabs.map((tab, index) => (
-              <span
-                key={tab}
-                className={`${
-                  selectedTab === index ? "bg-colorRed" : ""
-                } relative flex h-full w-32  cursor-pointer items-center justify-center rounded-full text-sm transition duration-300 ease-in-out sm:text-base`}
-                onClick={() => activeTab(tab, index)}
-              >
-                {tab}
-              </span>
-            ))}
-          </div>
-        )}
+        <div className="relative flex h-full items-center">
+          {tabs.map((tab, index) => (
+            <span
+              key={tab}
+              className={`${
+                selectedTab === index ? "bg-colorRed" : ""
+              } relative flex h-full w-32  cursor-pointer items-center justify-center rounded-full text-sm transition duration-300 ease-in-out sm:text-base`}
+              onClick={() => activeTab(tab, index)}
+            >
+              {tab}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

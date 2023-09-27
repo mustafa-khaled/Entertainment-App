@@ -6,11 +6,13 @@ import Series from "./pages/Series";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
 import SearchResults from "./pages/SearchResults";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Home replace to="home" />} />

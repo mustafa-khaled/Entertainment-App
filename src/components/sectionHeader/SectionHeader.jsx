@@ -5,7 +5,8 @@ function SectionHeader({ title, tabs, onTabChange }) {
   return (
     <div className="my-8 flex items-center justify-between ">
       <Head title={title} />
-      <Tabs tabs={tabs} onTabChange={onTabChange} />
+
+      {tabs && <Tabs tabs={tabs} onTabChange={onTabChange} />}
     </div>
   );
 }

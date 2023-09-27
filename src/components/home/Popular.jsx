@@ -4,7 +4,7 @@ import { useFetch } from "../../hooks/useFetch";
 import SectionHeader from "../sectionHeader/SectionHeader";
 import Loader from "../Loader";
 import Error from "../Error";
-import ItemsSwiper from "../ItemsSwiper";
+import Swiper from "../Swiper";
 
 function Popular() {
   const [endPoint, setEndPoint] = useState("movie");
@@ -26,7 +26,7 @@ function Popular() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <ItemsSwiper data={data?.results} endPoint={endPoint} />
+        <Swiper data={data?.results} endPoint={endPoint} />
       )}
     </div>
   );

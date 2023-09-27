@@ -16,7 +16,7 @@ export const sidebarLinksData = [
   },
 ];
 
-export const trendingSwiperBreakpoints = {
+export const bigSwiperBreakpoints = {
   350: {
     slidesPerView: 2,
   },
@@ -29,7 +29,7 @@ export const trendingSwiperBreakpoints = {
   },
 };
 
-export const itemSwiperBreakpoints = {
+export const regularSwiperBreakpoints = {
   350: {
     slidesPerView: 2,
   },
