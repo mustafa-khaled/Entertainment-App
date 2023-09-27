@@ -1,4 +1,4 @@
-// Swiper For the trending section swiper and the normal swiper for the rest of the app
+// Swiper For the trending section and a normal swiper for the rest of the app
 import { Swiper, SwiperSlide } from "swiper/react";
 import { formatDate } from "../utils/helpers";
 import { useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import "swiper/css";
 import noPoster from "/no-poster.png";
 
 function ItemsSwiper({ data, endPoint, trendingBreakpoints, trending }) {
-  const { url } = useSelector((state) => state.home);
+  const { url } = useSelector((state) => state?.home);
 
   return (
     <Swiper

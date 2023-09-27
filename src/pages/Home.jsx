@@ -1,7 +1,7 @@
-import Popular from "../components/Popular";
-import SearchBar from "../components/SearchBar";
-import TopRating from "../components/TopRating";
-import Trending from "../components/Trending";
+import Popular from "../components/home/Popular";
+import SearchBar from "../components/home/SearchBar";
+import TopRating from "../components/home/TopRating";
+import Trending from "../components/home/Trending";
 
 function Home() {
   return (

@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 
-import SectionHeader from "./SectionHeader";
-import ItemsSwiper from "./ItemsSwiper";
-import Loader from "./Loader";
-import Error from "./Error";
+import SectionHeader from "../sectionHeader/SectionHeader";
+import Loader from "../Loader";
+import Error from "../Error";
+import ItemsSwiper from "../ItemsSwiper";
 
-function TopRating() {
+function Popular() {
   const [endPoint, setEndPoint] = useState("movie");
-  const { data, loading, error } = useFetch(`/${endPoint}/top_rated`);
+  const { data, loading, error } = useFetch(`/${endPoint}/popular`);
 
   const onTabChange = (tab) => {
     setEndPoint(tab === "Movies" ? "movie" : "tv");
@@ -19,7 +19,7 @@ function TopRating() {
   return (
     <div>
       <SectionHeader
-        title="Top Rating"
+        title="What's Popular"
         tabs={["Movies", "TV Shows"]}
         onTabChange={onTabChange}
       />
@@ -32,4 +32,4 @@ function TopRating() {
   );
 }
 
-export default TopRating;
+export default Popular;

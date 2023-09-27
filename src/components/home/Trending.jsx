@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
-import { trendingSwiperBreakpoints } from "../data/data";
+import { useFetch } from "../../hooks/useFetch";
+import { trendingSwiperBreakpoints } from "../../data/data";
 
-import SectionHeader from "./SectionHeader";
-import Loader from "./Loader";
-import Error from "./Error";
-import ItemsSwiper from "./ItemsSwiper";
+import SectionHeader from "../sectionHeader/SectionHeader";
+import Loader from "../Loader";
+import Error from "../Error";
+import ItemsSwiper from "../ItemsSwiper";
 
 function Trending() {
   const [endPoint, setEndPoint] = useState("day");

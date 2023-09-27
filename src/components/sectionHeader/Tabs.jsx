@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SectionHeader({ title, tabs, onTabChange }) {
+function Tabs({ tabs, onTabChange }) {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const activeTab = (tab, index) => {
@@ -11,10 +11,9 @@ function SectionHeader({ title, tabs, onTabChange }) {
   };
 
   return (
-    <div className="my-8 flex items-center justify-between ">
-      <h2 className="text-2xl">{title}</h2>
-      <div className="w-[50%] sm:w-auto">
-        <div className="h-9  rounded-full bg-colorSemiDarkBlue p-1 text-colorWhite">
+    <div className="w-[50%] sm:w-auto">
+      <div className="h-9  rounded-full bg-colorSemiDarkBlue p-1 text-colorWhite">
+        {tabs && (
           <div className="relative flex h-full items-center">
             {tabs.map((tab, index) => (
               <span
@@ -28,10 +27,10 @@ function SectionHeader({ title, tabs, onTabChange }) {
               </span>
             ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default SectionHeader;
+export default Tabs;

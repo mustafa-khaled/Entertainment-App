@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchDataFromApi } from "../utils/api";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { gitApiConfiguration, gitGenres } from "../store/features/homeSlice";
 import Sidebar from "./sidebar/Sidebar";
 import Container from "./Container";
@@ -18,9 +18,9 @@ function AppLayout() {
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
       const url = {
-        backdrop: res.images.secure_base_url + "original",
-        poster: res.images.secure_base_url + "original",
-        profile: res.images.secure_base_url + "original",
+        backdrop: res?.images.secure_base_url + "original",
+        poster: res?.images.secure_base_url + "original",
+        profile: res?.images.secure_base_url + "original",
       };
       dispatch(gitApiConfiguration(url));
     });
@@ -31,12 +31,12 @@ function AppLayout() {
     let endPoints = ["tv", "movie"];
     let allGenres = {};
     endPoints?.forEach((url) => {
-      promises.push(fetchDataFromApi(`/genre/${url}/list`));
+      promises?.push(fetchDataFromApi(`/genre/${url}/list`));
     });
 
     const data = await Promise.all(promises);
     data?.map(({ genres }) => {
-      return genres?.map((item) => (allGenres[item.id] = item));
+      return genres?.map((item) => (allGenres[item?.id] = item));
     });
     dispatch(gitGenres(allGenres));
   };
