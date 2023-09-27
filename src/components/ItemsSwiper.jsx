@@ -7,6 +7,9 @@ import { itemSwiperBreakpoints } from "../data/data";
 import "swiper/css/navigation";
 import "swiper/css";
 import noPoster from "/no-poster.png";
+import Img from "./Img";
+import Rating from "./Rating";
+import ReleaseDate from "./ReleaseDate";
 
 function ItemsSwiper({ data, endPoint, trendingBreakpoints, trending }) {
   const { url } = useSelector((state) => state?.home);
@@ -28,36 +31,22 @@ function ItemsSwiper({ data, endPoint, trendingBreakpoints, trending }) {
           ? url?.poster + item?.backdrop_path
           : noPoster;
 
-        const formattedDate = formatDate(
-          item?.release_date || item?.first_air_date,
-        );
-
         return (
-          <SwiperSlide key={item.id} className="relative cursor-pointer">
-            <Link to={`${item.media_type || endPoint}/${item?.id}`}>
-              <img
+          <SwiperSlide key={item?.id} className="relative cursor-pointer">
+            <Link to={`${item?.media_type || endPoint}/${item?.id}`}>
+              <Img
                 src={trending ? backdropPath : poserPath}
-                alt={item.title || item.name}
-                className="w-full rounded-xl"
+                styles="w-full rounded-xl"
+                alt={item?.title || item?.name}
               />
               <div>
                 <h3 className="mb-[5px] mt-[10px] text-sm">
                   {item?.title || item?.name}
                 </h3>
-                <p className="text-xs text-colorGreyishBlue ">
-                  {formattedDate}
-                </p>
 
-                {!trending && (
-                  <div>
-                    <i className="fa-solid fa-star mr-[5px] text-sm text-yellow-500"></i>
-                    <span className="text-sm text-colorGreyishBlue underline">
-                      {Number.isInteger(item?.vote_average)
-                        ? item?.vote_average + ".0"
-                        : item?.vote_average}
-                    </span>
-                  </div>
-                )}
+                <ReleaseDate item={item} />
+                {/* Not Display Th Rating In Trending Section */}
+                {!trending && <Rating item={item} />}
               </div>
             </Link>
           </SwiperSlide>
