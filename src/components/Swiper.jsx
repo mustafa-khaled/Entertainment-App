@@ -1,17 +1,13 @@
-// Swiper For the trending section and a normal swiper for the rest of the app
 import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
-import { useSelector } from "react-redux";
 import { regularSwiperBreakpoints, bigSwiperBreakpoints } from "../data/data";
 import "swiper/css/navigation";
 import "swiper/css";
-import noPoster from "/no-poster.png";
 
 import Item from "./Item";
-import CastItem from "./CastItem";
+import Cast from "./details/Cast";
+import Video from "./details/Video";
 
-function Swiper({ data, endPoint, type, backdrop }) {
-  const { url } = useSelector((state) => state?.home);
-
+function Swiper({ data, endPoint, type = "regular", backdropImage }) {
   return (
     <ReactSwiper
       className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))]"
@@ -24,27 +20,13 @@ function Swiper({ data, endPoint, type, backdrop }) {
       }
     >
       {data?.map((item) => {
-        // If a normal section i well display  poster image only trending section is unique image
-        const poserPath = item?.poster_path
-          ? url?.poster + item?.poster_path
-          : noPoster;
-        // If trending section i well display  backdrop image
-        const backdropPath = item?.backdrop_path
-          ? url?.poster + item?.backdrop_path
-          : noPoster;
-
         return (
           <SwiperSlide key={item?.id}>
-            {type === "cast" ? (
-              <CastItem item={item} />
-            ) : (
-              <Item
-                backdrop={backdrop}
-                item={item}
-                endPoint={endPoint}
-                backdropPath={backdropPath}
-                poserPath={poserPath}
-              />
+            {type === "cast" && <Cast item={item} />}
+            {type === "videos" && <Video item={item} />}
+
+            {type !== "cast" && type !== "videos" && (
+              <Item backdrop={backdropImage} item={item} endPoint={endPoint} />
             )}
           </SwiperSlide>
         );

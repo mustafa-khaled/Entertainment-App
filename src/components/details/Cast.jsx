@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import user from "/user.png";
-import Img from "./Img";
+import Img from "../Img";
 
-function CastItem({ item }) {
+function Cast({ item }) {
   const { url } = useSelector((state) => state?.home);
 
   const profilePath = item?.profile_path
@@ -23,4 +23,4 @@ function CastItem({ item }) {
   );
 }
 
-export default CastItem;
+export default Cast;

@@ -27,7 +27,7 @@ function Trending() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <Swiper data={data?.results} backdrop={true} type="big" />
+        <Swiper data={data?.results} backdropImage={true} type="big" />
       )}
     </div>
   );
