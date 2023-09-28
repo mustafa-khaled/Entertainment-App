@@ -23,7 +23,7 @@ function ItemDetails({ data }) {
 
         <div className="flex items-center justify-center gap-[10px] md:justify-start">
           <Rating item={data} />
-          {data?.production_companies.map(
+          {data?.production_companies?.map(
             (im) =>
               im?.logo_path && (
                 <div

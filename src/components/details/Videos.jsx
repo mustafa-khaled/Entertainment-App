@@ -1,11 +1,11 @@
 import Swiper from "../Swiper";
 import SectionHeader from "../sectionHeader/SectionHeader";
 
-function Videos({ Videos }) {
+function Videos({ videos }) {
   return (
     <div>
       <SectionHeader title="Videos" />
-      <Swiper data={Videos?.results} type="videos" />
+      <Swiper data={videos?.results} type="videos" />
     </div>
   );
 }

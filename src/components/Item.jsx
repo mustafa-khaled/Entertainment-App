@@ -18,7 +18,7 @@ function Item({ item, backdrop, endPoint }) {
     : noPoster;
 
   return (
-    <Link to={`${item?.media_type || endPoint}/${item?.id}`}>
+    <Link to={`/${item?.media_type || endPoint}/${item?.id}`}>
       <Img
         src={backdrop ? backdropPath : poserPath}
         styles="w-full rounded-xl"
