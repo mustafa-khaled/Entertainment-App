@@ -32,17 +32,19 @@ function Details() {
 
   if (loading || creditsLoading || videosLoading || similarLoading)
     return <Loader />;
+
   if (error || creditsError || videosError || similarError)
     return <Error massage={"There Was An error fetch The Data."} />;
 
   return (
     <>
       <ItemDetails data={data} />
-      <Credits credits={credits} />
 
+      {credits?.cast?.length > 0 && <Credits credits={credits} />}
       {videos?.results?.length > 0 && <Videos videos={videos} />}
-
-      <Similar title={title} data={similar} endPoint={mediaType} />
+      {similar?.results?.length > 0 && (
+        <Similar title={title} data={similar} endPoint={mediaType} />
+      )}
     </>
   );
 }

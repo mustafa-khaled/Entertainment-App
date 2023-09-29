@@ -5,6 +5,7 @@ import SectionHeader from "../sectionHeader/SectionHeader";
 import Loader from "../Loader";
 import Error from "../Error";
 import Swiper from "../Swiper";
+import Item from "../Item";
 
 function TopRating() {
   const [endPoint, setEndPoint] = useState("movie");
@@ -26,7 +27,9 @@ function TopRating() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <Swiper data={data?.results} endPoint={endPoint} />
+        <Swiper data={data?.results} type="big">
+          <Item endPoint={endPoint} />
+        </Swiper>
       )}
     </div>
   );

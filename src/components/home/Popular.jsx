@@ -5,6 +5,7 @@ import SectionHeader from "../sectionHeader/SectionHeader";
 import Loader from "../Loader";
 import Error from "../Error";
 import Swiper from "../Swiper";
+import Item from "../Item";
 
 function Popular() {
   const [endPoint, setEndPoint] = useState("movie");
@@ -26,7 +27,9 @@ function Popular() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <Swiper data={data?.results} endPoint={endPoint} />
+        <Swiper data={data?.results}>
+          <Item endPoint={endPoint} />
+        </Swiper>
       )}
     </div>
   );

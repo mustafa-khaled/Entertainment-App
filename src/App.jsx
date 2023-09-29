@@ -5,7 +5,7 @@ import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
-import SearchResults from "./pages/SearchResults";
+import Search from "./pages/Search";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <Route path="movies" element={<Movies />} />
             <Route path="series" element={<Series />} />
             <Route path="/:mediaType/:id" element={<Details />} />
-            <Route path="search/:query" element={<SearchResults />} />
+            <Route path="search/:query" element={<Search />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -5,6 +5,7 @@ import SectionHeader from "../sectionHeader/SectionHeader";
 import Loader from "../Loader";
 import Error from "../Error";
 import Swiper from "../Swiper";
+import Item from "../Item";
 
 function Trending() {
   const [endPoint, setEndPoint] = useState("day");
@@ -27,7 +28,9 @@ function Trending() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <Swiper data={data?.results} backdropImage={true} type="big" />
+        <Swiper data={data?.results} type="big">
+          <Item backdrop={true} endPoint={endPoint} />
+        </Swiper>
       )}
     </div>
   );

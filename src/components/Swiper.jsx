@@ -2,35 +2,28 @@ import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
 import { regularSwiperBreakpoints, bigSwiperBreakpoints } from "../data/data";
 import "swiper/css/navigation";
 import "swiper/css";
+import React from "react";
 
-import Item from "./Item";
-import Cast from "./details/Cast";
-import Video from "./details/Video";
-
-function Swiper({ data, endPoint, type = "regular", backdropImage }) {
+function Swiper({ data, type = "regular", children }) {
   return (
     <ReactSwiper
       className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))]"
       spaceBetween={30}
-      // Display different break point
       breakpoints={
-        type === "regular" || type === "cast"
-          ? regularSwiperBreakpoints
-          : bigSwiperBreakpoints
+        type === "regular" ? regularSwiperBreakpoints : bigSwiperBreakpoints
       }
     >
-      {data?.map((item) => {
-        return (
-          <SwiperSlide key={item?.id}>
-            {type === "cast" && <Cast item={item} />}
-            {type === "videos" && <Video item={item} />}
-
-            {type !== "cast" && type !== "videos" && (
-              <Item backdrop={backdropImage} item={item} endPoint={endPoint} />
-            )}
-          </SwiperSlide>
-        );
-      })}
+      {data?.map((item) => (
+        <SwiperSlide key={item?.id}>
+          {React.Children.map(children, (child) => {
+            // Clone each child and pass appropriate props
+            return React.cloneElement(child, {
+              item,
+              type,
+            });
+          })}
+        </SwiperSlide>
+      ))}
     </ReactSwiper>
   );
 }
