@@ -1,5 +1,5 @@
 [Live site URL](https://entertainment-application.netlify.app/)
-# Entertainment App Development: I designed and developed an entertainment application using React, Redux, Tailwind, and the TMDB API. The app offers a seamless and enjoyable browsing experience for movie and TV show enthusiasts.
+# This is an  entertainment application using React, Redux, Tailwind, and the TMDB API. The app offers a seamless and enjoyable browsing experience for movie and TV show enthusiasts.
 
 ### Features 
 - **Movies & Series Lists**: Users can access a variety of movie and series lists, including popular, trending, and top-rated movies..
