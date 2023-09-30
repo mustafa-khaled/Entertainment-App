@@ -1,42 +1,21 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchDataFromApi } from "../utils/api";
-import { useDispatch } from "react-redux";
-import { gitApiConfiguration, gitGenres } from "../store/features/homeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchApiConfig } from "../store/features/homeSlice";
 import Sidebar from "./sidebar/Sidebar";
 import Footer from "./Footer";
+import Loader from "./Loader";
 
 function AppLayout() {
   const dispatch = useDispatch();
 
+  const loading = useSelector((state) => state.home.loading);
+
   useEffect(() => {
-    fetchApiConfig();
-    genresCall();
-  }, []);
+    dispatch(fetchApiConfig());
+  }, [dispatch]);
 
-  const fetchApiConfig = () => {
-    fetchDataFromApi("/configuration").then((res) => {
-      const url = {
-        poster: res?.images?.secure_base_url + "original",
-      };
-      dispatch(gitApiConfiguration(url));
-    });
-  };
-
-  const genresCall = async () => {
-    let promises = [];
-    let endPoints = ["tv", "movie"];
-    let allGenres = {};
-    endPoints?.forEach((url) => {
-      promises?.push(fetchDataFromApi(`/genre/${url}/list`));
-    });
-
-    const data = await Promise.all(promises);
-    data?.map(({ genres }) => {
-      return genres?.map((item) => (allGenres[item?.id] = item));
-    });
-    dispatch(gitGenres(allGenres));
-  };
+  if (loading) return <Loader />;
 
   return (
     <div className="bg-colorDarkBlue pt-[40px]">

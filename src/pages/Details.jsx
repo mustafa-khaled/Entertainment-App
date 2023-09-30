@@ -11,6 +11,7 @@ import Similar from "../components/details/Similar";
 function Details() {
   const { mediaType, id } = useParams();
   const title = mediaType === "tv" ? "Similar Tv Shows" : "Similar Movies";
+
   const { data, loading, error } = useFetch(`/${mediaType}/${id}`);
   const {
     data: credits,

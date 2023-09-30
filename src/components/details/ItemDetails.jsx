@@ -5,8 +5,7 @@ import Rating from "../Rating";
 import ReleaseDate from "../ReleaseDate";
 
 function ItemDetails({ data }) {
-  const { url } = useSelector((state) => state?.home);
-
+  const url = useSelector((state) => state?.home?.url);
   const posterPath = useImage(data?.poster_path);
 
   return (
@@ -29,7 +28,7 @@ function ItemDetails({ data }) {
                   className="flex items-center justify-center rounded-xl bg-colorGreyishBlue p-[5px]"
                 >
                   <Img
-                    src={im?.logo_path && url?.poster + im?.logo_path}
+                    src={im?.logo_path && url + im?.logo_path}
                     alt={data?.title || data?.name}
                     styles="w-[40px]"
                   />
@@ -57,9 +56,9 @@ function ItemDetails({ data }) {
 
         <div className="bg-red-400= flex items-center justify-center gap-[10px] text-sm md:justify-start">
           Genres:
-          {data?.genres.map((it) => (
-            <p key={it.id} className="rounded-xl bg-colorGreyishBlue p-[5px] ">
-              {it.name}
+          {data?.genres?.map((it) => (
+            <p key={it?.id} className="rounded-xl bg-colorGreyishBlue p-[5px] ">
+              {it?.name}
             </p>
           ))}
         </div>
