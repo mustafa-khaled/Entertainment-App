@@ -1,1 +1,1 @@
-# Not Completed Yet
+[Live site URL](https://entertainment-application.netlify.app/)
