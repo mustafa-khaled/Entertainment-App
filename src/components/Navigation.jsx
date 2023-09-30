@@ -1,4 +1,4 @@
-function ResultsNavigation({ goToPrevPage, goToNextPage, pageNum, data }) {
+function Navigation({ goToPrevPage, goToNextPage, pageNum, data }) {
   return (
     <div className="flex items-center gap-[10px]">
       <button onClick={goToPrevPage} disabled={pageNum === 1}>
@@ -22,4 +22,4 @@ function ResultsNavigation({ goToPrevPage, goToNextPage, pageNum, data }) {
   );
 }
 
-export default ResultsNavigation;
+export default Navigation;

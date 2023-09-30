@@ -39,7 +39,11 @@ function Details() {
 
   return (
     <>
-      <ItemDetails data={data} />
+      {data?.id ? (
+        <ItemDetails data={data} />
+      ) : (
+        <Error massage="Not Available." />
+      )}
 
       {credits?.cast?.length > 0 && <Credits credits={credits} />}
       {videos?.results?.length > 0 && <Videos videos={videos} />}

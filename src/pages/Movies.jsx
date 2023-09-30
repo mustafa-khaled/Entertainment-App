@@ -1,5 +1,7 @@
+import List from "../components/List";
+
 function Movies() {
-  return <div>Movies</div>;
+  return <List endPoint="movie" />;
 }
 
 export default Movies;

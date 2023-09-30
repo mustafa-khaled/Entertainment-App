@@ -27,7 +27,7 @@ function TopRating() {
       {loading ? (
         <Loader smallLoader={true} />
       ) : (
-        <Swiper data={data?.results} type="big">
+        <Swiper data={data?.results}>
           <Item endPoint={endPoint} />
         </Swiper>
       )}

@@ -4,7 +4,7 @@ import { fetchDataFromApi } from "../../utils/api";
 import Item from "../Item";
 import Loader from "../Loader";
 import SectionHeader from "../sectionHeader/SectionHeader";
-import ResultsNavigation from "./ResultsNavigation";
+import Navigation from "../Navigation";
 
 function SearchResults() {
   const [values, setValues] = useState({
@@ -60,7 +60,7 @@ function SearchResults() {
           } Results For '${query.query}'.`}
         />
 
-        <ResultsNavigation
+        <Navigation
           goToNextPage={goToNextPage}
           goToPrevPage={goToPrevPage}
           pageNum={pageNum}

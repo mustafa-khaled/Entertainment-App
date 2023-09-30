@@ -1,5 +1,7 @@
+import List from "../components/List";
+
 function Series() {
-  return <div>Series</div>;
+  return <List endPoint="tv" />;
 }
 
 export default Series;
