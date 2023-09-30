@@ -11,6 +11,12 @@ function SearchBar() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      searchQueryHandler();
+    }
+  };
+
   return (
     <div className="flex items-center ">
       <i className="fa-solid fa-magnifying-glass"></i>
@@ -21,6 +27,7 @@ function SearchBar() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onBlur={searchQueryHandler}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );

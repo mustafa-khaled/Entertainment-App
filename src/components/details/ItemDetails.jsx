@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
+import { useImage } from "../../hooks/useImage";
 import Img from "../Img";
 import Rating from "../Rating";
 import ReleaseDate from "../ReleaseDate";
-import noPoster from "/no-poster.png";
 
 function ItemDetails({ data }) {
   const { url } = useSelector((state) => state?.home);
 
-  const posterPath = data?.poster_path
-    ? url?.poster + data?.poster_path
-    : noPoster;
+  const posterPath = useImage(data?.poster_path);
 
   return (
     <div className="flex flex-col items-center justify-around gap-[20px] text-center md:flex-row md:items-start md:text-left">

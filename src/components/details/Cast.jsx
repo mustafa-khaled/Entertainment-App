@@ -1,18 +1,14 @@
-import { useSelector } from "react-redux";
+import { useImage } from "../../hooks/useImage";
 import user from "/user.png";
 import Img from "../Img";
 
 function Cast({ item }) {
-  const { url } = useSelector((state) => state?.home);
-
-  const profilePath = item?.profile_path
-    ? url?.poster + item?.profile_path
-    : user;
+  const profileImage = useImage(item?.profile_path, user);
 
   return (
     <div className="text-center">
       <Img
-        src={profilePath}
+        src={profileImage || user}
         styles="rounded-full w-[120px] h-[120px] object-cover"
         alt={item?.title || item?.name}
       />

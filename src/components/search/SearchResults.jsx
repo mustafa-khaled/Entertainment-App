@@ -54,7 +54,9 @@ function SearchResults() {
       <div className="flex items-center justify-between">
         <SectionHeader
           title={`Found ${pageNum > 1 ? "More" : ""} ${
-            data?.length
+            data?.length > 0
+              ? data?.filter((item) => item?.media_type !== "person").length
+              : "0"
           } Results For '${query.query}'.`}
         />
 
@@ -68,9 +70,9 @@ function SearchResults() {
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-[20px]">
         {data?.length > 0 &&
-          data?.map((item) => {
-            return <Item key={item.id} item={item} />;
-          })}
+          data
+            ?.filter((item) => item?.media_type !== "person")
+            .map((item) => <Item key={item?.id} item={item} />)}
       </div>
     </div>
   );

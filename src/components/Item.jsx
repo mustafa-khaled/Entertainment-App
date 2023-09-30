@@ -1,21 +1,12 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useImage } from "../hooks/useImage";
 import Img from "./Img";
 import ReleaseDate from "./ReleaseDate";
 import Rating from "./Rating";
-import noPoster from "/no-poster.png";
 
 function Item({ item, backdrop, endPoint }) {
-  const { url } = useSelector((state) => state?.home);
-
-  // If a normal section i well display  poster image only trending section is unique image
-  const poserPath = item?.poster_path
-    ? url?.poster + item?.poster_path
-    : noPoster;
-  // If trending section i well display  backdrop image
-  const backdropPath = item?.backdrop_path
-    ? url?.poster + item?.backdrop_path
-    : noPoster;
+  const poserPath = useImage(item?.poster_path);
+  const backdropPath = useImage(item?.backdrop_path);
 
   return (
     <Link to={`/${item?.media_type || endPoint}/${item?.id}`}>
